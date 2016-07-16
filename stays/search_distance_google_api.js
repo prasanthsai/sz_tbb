@@ -25,11 +25,12 @@ const query = (origin, hotelData, queryCallBack) => {
 				helpers.parseJson(data, (err, jsdata) => {
 					jsdata.destination_addresses.forEach((element, dindex) => {
 						distanceAndDurationData.push([
-							hotelReverseMap[element],
+							hotelReverseMap[parsedLocation[dindex].lat + ',' + parsedLocation[dindex].lng],
 							jsdata.rows[0].elements[dindex].distance.value/1000,
 							jsdata.rows[0].elements[dindex].duration.value
 						]);
 					});
+					callback();
 				});
 			});
 			

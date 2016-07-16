@@ -21,8 +21,7 @@ const doOnRoadDistanceCurl = (origins, destinations, dataCallBack) => {
 		destinations : destinations.map(entry => (entry.lat + ',' + entry.lng)).join('|')
 	};
 	const options = {
-		url : config.endpoints.googledistanceapi + '',
-		data : data
+		url : config.googleapi.url + 'origins=' + data.origins + '&destinations=' + data.destinations,
 	};
 	doCurl(options, dataCallBack);
 

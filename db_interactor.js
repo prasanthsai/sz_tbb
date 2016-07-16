@@ -47,6 +47,22 @@ const queryHotelsInRadius = (lat, lng, minLat, minLng, maxLat, maxLng, radius, e
 		"Order By disp", callback );
 };
 
+const updateCrawledStatus = (id, status, callback) => {
+	execute("update localities set crawl_status = " + status + " where id = " + id + " limit 1", callback);
+};
+
+const getLocalityCrawled = (id, callback) => {
+	execute("select id, search_result from localities_results where id = " + id + " limit 1", callback);
+};
+
+const insertLocalityCrawled = (id, search_result, callback) => {
+	execute("insert into localities_results (id, search_result) values ("+id+", '"+search_result+"')", callback);
+};
+
+const insertNewLocality = (location, radius, callback) => {
+	execute("insert into localities (location, radius) values ('" + location + "', '" + radius + "' )", callback);
+};
+
 const execute = (sql,callback) => {
     executeQuery(sql,function(err,data){
         callback(err,data);
@@ -55,5 +71,9 @@ const execute = (sql,callback) => {
 
 module.exports = {
 	queryHotelsInRadius: queryHotelsInRadius,
-	queryCrawledStatus: queryCrawledStatus
+	queryCrawledStatus: queryCrawledStatus,
+	insertLocalityCrawled : insertLocalityCrawled,
+	getLocalityCrawled : getLocalityCrawled,
+	updateCrawledStatus : updateCrawledStatus,
+	insertNewLocality: insertNewLocality
 };
