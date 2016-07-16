@@ -1,0 +1,17 @@
+{
+  "name": "sz-search",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Prasanth",
+  "license": "ISC",
+  "dependencies": {
+    "curlrequest": "^0.5.7",
+    "mysql": "^2.11.1",
+    "node-ini": "^1.0.0",
+    "restify": "^4.1.1"
+  }
+}
