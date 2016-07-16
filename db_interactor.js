@@ -34,7 +34,7 @@ const executeQuery = (sql, callback) => {
 };
 
 const queryCrawledStatus = (location, radius, callback) => {
-	execute("select id from localities where location like '"+ location + "' and radius = " + radius, callback);
+	execute("select id from localities where location like '"+ location + "' and radius = " + radius + " limit 1", callback);
 };
 
 const queryHotelsInRadius = (lat, lng, minLat, minLng, maxLat, maxLng, radius, earth_radius, callback) => {

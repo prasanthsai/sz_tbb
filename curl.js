@@ -15,7 +15,11 @@ const doLocalityCurl = (searchString, dataCallBack) => {
 };
 
 
-const doOnRoadDistanceCurl = () => {
+const doOnRoadDistanceCurl = (origins, destinations, dataCallBack) => {
+	const options = {
+		url : config.endpoints.googledistanceapi,
+	};
+	doCurl(options, dataCallBack);
 
 };
 
