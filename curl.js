@@ -16,8 +16,13 @@ const doLocalityCurl = (searchString, dataCallBack) => {
 
 
 const doOnRoadDistanceCurl = (origins, destinations, dataCallBack) => {
+	const data = {
+		origins : origins.lat + ',' + origins.lng,
+		destinations : destinations.map(entry => (entry.lat + ',' + entry.lng)).join('|')
+	};
 	const options = {
-		url : config.endpoints.googledistanceapi,
+		url : config.endpoints.googledistanceapi + '',
+		data : data
 	};
 	doCurl(options, dataCallBack);
 

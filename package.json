@@ -9,6 +9,7 @@
   "author": "Prasanth",
   "license": "ISC",
   "dependencies": {
+    "async": "^2.0.0",
     "curlrequest": "^0.5.7",
     "lodash": "^4.13.1",
     "mysql": "^2.11.1",
