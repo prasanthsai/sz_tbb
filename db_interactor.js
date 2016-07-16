@@ -42,7 +42,7 @@ const queryHotelsInRadius = (lat, lng, minLat, minLng, maxLat, maxLng, radius, e
        			"acos(sin(" + lat + ")*sin(radians(lat)) + cos(" + lat + ")*cos(radians(lat))*cos(radians(lng)-" + lng + ")) * " + earth_radius + " As disp " +
 		"From hotel_lat_lng " +
 		"Where lat Between "+minLat+" And "+maxLat+" " +
-  			"And lng Between " + minLng + " And " + maxLnf + " " +
+  			"And lng Between " + minLng + " And " + maxLng + " " +
   			"And acos(sin(" + lat + ")*sin(radians(lat)) + cos(" + lat + ")*cos(radians(lat))*cos(radians(lng)-" + lng + ")) * " + earth_radius + " < " + radius+" " +
 		"Order By disp", callback );
 };

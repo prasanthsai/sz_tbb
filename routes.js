@@ -1,12 +1,12 @@
 const locality = require('./locality'); 
-const searchStays = require('./search_stays');
-const getStaysWithDistance = require('./get_stays_distance');
+const searchStaysDisplacement = require('./stays/search_displacement');
+//const getStaysWithDistance = require('./get_stays_distance');
 
 
 
 const initiateRoutes = (server) => {
         server.get("/localitysearch/:search_string", routeLocalitySearch);
-	server.get("/searchstays/:lat/:lng/:radius", routeSearchStays);
+	server.get("/searchstays_displacement/:lat/:lng/:radius", routeSearchStaysDisplacement);
 	server.on('NotFound', routeUnknownPaths);
 }
 
@@ -15,8 +15,8 @@ const routeLocalitySearch = (req, res, next) => {
 	return next();
 };
 
-const routeSearchStays = (req, res, next) => {
-	locality.search(req.params.search_string, res, sendresponse);
+const routeSearchStaysDisplacement = (req, res, next) => {
+	searchStaysDisplacement.search(req.params.lat, req.params.lng, req.params.radius, res, sendresponse);
 	return next();
 };
 

@@ -10,6 +10,7 @@
   "license": "ISC",
   "dependencies": {
     "curlrequest": "^0.5.7",
+    "lodash": "^4.13.1",
     "mysql": "^2.11.1",
     "node-ini": "^1.0.0",
     "restify": "^4.1.1"
